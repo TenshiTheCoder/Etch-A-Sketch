@@ -15,7 +15,14 @@ function createGrid(number) {
       console.log("column appended to row");
 
       column.addEventListener("mouseover", () => {
-        column.style.backgroundColor = "black";
+        let currentOpacity = parseFloat(column.style.opacity || 1);
+        currentOpacity -= 0.1;
+        
+        if (currentOpacity <= 0) {
+          opacity = 0;
+        }
+        column.style.backgroundColor = "blue";
+        column.style.opacity = currentOpacity.toString();
       })
 
       column.addEventListener("mouseout", () => {
